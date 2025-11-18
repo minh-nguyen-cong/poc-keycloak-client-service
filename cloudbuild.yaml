@@ -2,9 +2,9 @@ steps:
 - name: 'gcr.io/cloud-builders/mvn'
   args: ['package', '-Dquarkus.package.type=uber-jar']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'asia-southeast1-docker.pkg.dev/your-gcp-project-id/your-artifact-registry-repo/client-service:latest', '.']
+  args: ['build', '-t', 'asia-southeast1-docker.pkg.dev/poc-keycloak-oidc-quarkus/poc-keycloak-repository/client-service:latest', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'asia-southeast1-docker.pkg.dev/your-gcp-project-id/your-artifact-registry-repo/client-service:latest']
+  args: ['push', 'asia-southeast1-docker.pkg.dev/poc-keycloak-oidc-quarkus/poc-keycloak-repository/client-service:latest']
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
   args:
@@ -12,11 +12,11 @@ steps:
   - 'deploy'
   - 'client-service'
   - '--image'
-  - 'asia-southeast1-docker.pkg.dev/your-gcp-project-id/your-artifact-registry-repo/client-service:latest'
+  - 'asia-southeast1-docker.pkg.dev/poc-keycloak-oidc-quarkus/poc-keycloak-repository/client-service:latest'
   - '--region'
   - 'asia-southeast1'
   - '--platform'
   - 'managed'
   - '--allow-unauthenticated'
 images:
-- 'asia-southeast1-docker.pkg.dev/your-gcp-project-id/your-artifact-registry-repo/client-service:latest'
+- 'asia-southeast1-docker.pkg.dev/poc-keycloak-oidc-quarkus/poc-keycloak-repository/client-service:latest'
