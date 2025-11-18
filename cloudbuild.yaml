@@ -20,3 +20,5 @@ steps:
   - '--allow-unauthenticated'
 images:
 - 'asia-southeast1-docker.pkg.dev/poc-keycloak-oidc-quarkus/poc-keycloak-repository/client-service:latest'
+options:
+  logging: CLOUD_LOGGING_ONLY   # This avoids the log bucket error
